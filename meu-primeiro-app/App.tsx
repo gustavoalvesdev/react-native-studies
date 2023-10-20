@@ -1,23 +1,29 @@
-import { Text, View, StyleSheet } from 'react-native';
+import { Text, SafeAreaView, StyleSheet } from 'react-native';
 import { PizzaItem } from './components/PizzaItem';
 
 const App = () => {
   return (
-    <View style={styles.container}>
-        <Text>Meu Primeiro App</Text>
+    <SafeAreaView>
+        <Text style={styles.title}>Meu Primeiro App</Text>
+        <Text style={styles.subtitle}>Lista de Pizzas:</Text>
         <PizzaItem />
         <PizzaItem />
         <PizzaItem />
-    </View>
+    </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+  title: {
+    marginTop: 25,
+    fontSize: 24,
+    color: '#FF0000',
+    textAlign: 'center'
+  },
+  subtitle: {
+    fontSize: 17,
+    color: '#999',
+    textAlign: 'center'
   }
 });
 

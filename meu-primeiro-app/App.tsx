@@ -1,9 +1,14 @@
 import { Text, View } from 'react-native';
+import { PizzaItem } from './components/PizzaItem';
 
-function App() {
+const App = () => {
   return (
     <View>
         <Text>Meu Primeiro App</Text>
+        <PizzaItem />
+        <PizzaItem />
+        <PizzaItem />
+        <PizzaItem />
     </View>
   );
 }

@@ -1,10 +1,18 @@
 import { Text, View, StyleSheet } from 'react-native';
 
 export const PizzaItem = () => {
+
+    let name = 'Pizza Quatro Queijos';
+    let price = 50;
+    let originalPrice = 60;
+
     return (
         <View style={styles.container}>
-            <Text style={[ styles.name, styles.negrito ]}>Pizza Calabresa</Text>
-            <Text style={styles.price}>R$ 50,00</Text>
+            <Text style={[ styles.name, styles.negrito ]}>{name}</Text>
+            <Text style={styles.price}>R$ {price.toFixed(2)}</Text>
+            {originalPrice > price &&
+                <Text>PROMOÇÃO EXTRA!</Text>
+            }
         </View>
     );
 }

@@ -1,16 +1,18 @@
 import { Text, View, StyleSheet } from 'react-native';
 
-export const PizzaItem = () => {
+type Props = {
+    name: string;
+    price: number;
+    originalPrice?: number
+}
 
-    let name = 'Pizza Quatro Queijos';
-    let price = 50;
-    let originalPrice = 60;
-
+export const PizzaItem = ({ name, price, originalPrice }: Props) => {
+    
     return (
         <View style={styles.container}>
             <Text style={[ styles.name, styles.negrito ]}>{name}</Text>
             <Text style={styles.price}>R$ {price.toFixed(2)}</Text>
-            {originalPrice > price &&
+            {originalPrice && originalPrice > price &&
                 <Text>PROMOÇÃO EXTRA!</Text>
             }
         </View>

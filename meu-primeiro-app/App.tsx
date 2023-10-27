@@ -6,9 +6,9 @@ const App = () => {
     <SafeAreaView>
         <Text style={styles.title}>Meu Primeiro App</Text>
         <Text style={styles.subtitle}>Lista de Pizzas:</Text>
-        <PizzaItem />
-        <PizzaItem />
-        <PizzaItem />
+        <PizzaItem name="Quadro Queijos" price={50} />
+        <PizzaItem name="Calabresa" price={45} />
+        <PizzaItem name="Frango" price={30} originalPrice={35} />
     </SafeAreaView>
   );
 }

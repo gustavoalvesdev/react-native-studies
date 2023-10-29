@@ -1,28 +1,35 @@
-import { Text, SafeAreaView, StyleSheet, Button, Alert } from 'react-native';
+import { Text, SafeAreaView, StyleSheet, Button, Alert, Pressable, View } from 'react-native';
 import { PizzaItem } from './components/PizzaItem';
 
 const App = () => {
 
-  const handleButton = () => {
-    Alert.alert('Apertou no botão!');
+  const handlePressIn = () => {
+    Alert.alert('Começou o PRESS');
   }
 
+  const handlePressOut = () => {
+    Alert.alert('Tirou o dedo!');
+  }
+
+  const handleLongPress = () => { 
+    Alert.alert('Segurou o dedo');
+  }
+  
   return (
     <SafeAreaView>
         <Text style={styles.title}>Meu Primeiro App</Text>
 
-        <Button 
-          title="Aperte aqui" 
-          onPress={handleButton}  
-          color='#FF0000'
-        />
-
         <Text style={styles.subtitle}>Lista de Pizzas:</Text>
-        <PizzaItem 
-          name="Quadro Queijos" 
-          price={50} 
-          items={['Queijo X', 'Queijo Y', 'Massa', 'Corante Amarelado']}
-        />
+
+        <Pressable
+          onPressOut={handlePressOut}
+        >
+          <PizzaItem 
+            name="Quadro Queijos" 
+            price={50} 
+            items={['Queijo X', 'Queijo Y', 'Massa', 'Corante Amarelado']}
+          />
+        </Pressable>
         <PizzaItem 
           name="Calabresa" 
           price={45} 
@@ -49,6 +56,16 @@ const styles = StyleSheet.create({
     fontSize: 17,
     color: '#999',
     textAlign: 'center'
+  },
+  button: {
+    backgroundColor: '#FF0000',
+    padding: 10,
+    margin: 10
+  },
+  buttonText: {
+    color: '#FFFFFF',
+    textAlign: 'center',
+
   }
 });
 

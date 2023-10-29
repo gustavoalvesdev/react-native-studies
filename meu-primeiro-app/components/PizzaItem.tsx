@@ -3,10 +3,16 @@ import { Text, View, StyleSheet } from 'react-native';
 type Props = {
     name: string;
     price: number;
-    originalPrice?: number
+    originalPrice?: number;
+    items: string[];
 }
 
-export const PizzaItem = ({ name, price, originalPrice }: Props) => {
+export const PizzaItem = ({ 
+    name, 
+    price, 
+    originalPrice, 
+    items 
+}: Props) => {
     
     return (
         <View style={styles.container}>
@@ -15,6 +21,7 @@ export const PizzaItem = ({ name, price, originalPrice }: Props) => {
             {originalPrice && originalPrice > price &&
                 <Text>PROMOÇÃO EXTRA!</Text>
             }
+            <Text>{items.join(', ')}</Text>
         </View>
     );
 }

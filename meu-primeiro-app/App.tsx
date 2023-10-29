@@ -1,10 +1,22 @@
-import { Text, SafeAreaView, StyleSheet } from 'react-native';
+import { Text, SafeAreaView, StyleSheet, Button, Alert } from 'react-native';
 import { PizzaItem } from './components/PizzaItem';
 
 const App = () => {
+
+  const handleButton = () => {
+    Alert.alert('Apertou no botão!');
+  }
+
   return (
     <SafeAreaView>
         <Text style={styles.title}>Meu Primeiro App</Text>
+
+        <Button 
+          title="Aperte aqui" 
+          onPress={handleButton}  
+          color='#FF0000'
+        />
+
         <Text style={styles.subtitle}>Lista de Pizzas:</Text>
         <PizzaItem 
           name="Quadro Queijos" 

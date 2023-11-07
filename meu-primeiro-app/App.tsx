@@ -1,4 +1,4 @@
-import { Text, SafeAreaView, StyleSheet, Button, Alert, Pressable, View } from 'react-native';
+import { Text, SafeAreaView, StyleSheet, Button, Alert, Pressable, View, TouchableHighlight, TouchableOpacity, TouchableWithoutFeedback } from 'react-native';
 import { PizzaItem } from './components/PizzaItem';
 
 const App = () => {
@@ -25,22 +25,38 @@ const App = () => {
           onPressOut={handlePressOut}
         >
           <PizzaItem 
-            name="Quadro Queijos" 
+            name="Quatro Queijos" 
             price={50} 
             items={['Queijo X', 'Queijo Y', 'Massa', 'Corante Amarelado']}
           />
         </Pressable>
-        <PizzaItem 
-          name="Calabresa" 
-          price={45} 
-          items={['Carne', 'Resto de algo', 'Massa', 'Corante Avermelhado']}
-        />
-        <PizzaItem 
-          name="Frango" 
-          price={30} 
-          originalPrice={35} 
-          items={['Galeto', 'Hormônio XYZ', 'Corante Laranja']}
-        />
+
+        <TouchableHighlight
+          onPress={handlePressOut}
+          underlayColor='#FF0000'
+        >
+          <PizzaItem 
+            name="Calabresa" 
+            price={45} 
+            items={['Carne', 'Resto de algo', 'Massa', 'Corante Avermelhado']}
+          />
+        </TouchableHighlight>
+
+        <TouchableOpacity
+          onPress={handlePressOut}
+          activeOpacity={0.7}
+        >
+          <PizzaItem 
+            name="Frango" 
+            price={30} 
+            originalPrice={35} 
+            items={['Galeto', 'Hormônio XYZ', 'Corante Laranja']}
+          />
+        </TouchableOpacity>
+
+        {/* <TouchableWithoutFeedback>
+            descontinuado
+        </TouchableWithoutFeedback> */}
     </SafeAreaView>
   );
 }

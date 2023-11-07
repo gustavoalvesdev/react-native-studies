@@ -1,28 +1,32 @@
-import { Text, View, StyleSheet } from 'react-native';
+import { Text, View, StyleSheet, Pressable } from 'react-native';
 
 type Props = {
     name: string;
     price: number;
     originalPrice?: number;
     items: string[];
+    onPress: () => void;
 }
 
 export const PizzaItem = ({ 
     name, 
     price, 
     originalPrice, 
-    items 
+    items,
+    onPress 
 }: Props) => {
     
     return (
-        <View style={styles.container}>
-            <Text style={[ styles.name, styles.negrito ]}>{name}</Text>
-            <Text style={styles.price}>R$ {price.toFixed(2)}</Text>
-            {originalPrice && originalPrice > price &&
-                <Text>PROMOÇÃO EXTRA!</Text>
-            }
-            <Text>{items.join(', ')}</Text>
-        </View>
+        <Pressable onPress={onPress}>
+            <View style={styles.container}>
+                <Text style={[ styles.name, styles.negrito ]}>{name}</Text>
+                <Text style={styles.price}>R$ {price.toFixed(2)}</Text>
+                {originalPrice && originalPrice > price &&
+                    <Text>PROMOÇÃO EXTRA!</Text>
+                }
+                <Text>{items.join(', ')}</Text>
+            </View>
+        </Pressable>
     );
 }
 

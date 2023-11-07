@@ -21,42 +21,28 @@ const App = () => {
 
         <Text style={styles.subtitle}>Lista de Pizzas:</Text>
 
-        <Pressable
-          onPressOut={handlePressOut}
-        >
-          <PizzaItem 
-            name="Quatro Queijos" 
-            price={50} 
-            items={['Queijo X', 'Queijo Y', 'Massa', 'Corante Amarelado']}
-          />
-        </Pressable>
+    
+        <PizzaItem 
+          name="Quatro Queijos" 
+          price={50} 
+          items={['Queijo X', 'Queijo Y', 'Massa', 'Corante Amarelado']}
+          onPress={() => Alert.alert('4 Queijos')}
+        />
+  
+        <PizzaItem 
+          name="Calabresa" 
+          price={45} 
+          items={['Carne', 'Resto de algo', 'Massa', 'Corante Avermelhado']}
+          onPress={() => Alert.alert('Cala a bresa')}
+        />
 
-        <TouchableHighlight
-          onPress={handlePressOut}
-          underlayColor='#FF0000'
-        >
-          <PizzaItem 
-            name="Calabresa" 
-            price={45} 
-            items={['Carne', 'Resto de algo', 'Massa', 'Corante Avermelhado']}
-          />
-        </TouchableHighlight>
-
-        <TouchableOpacity
-          onPress={handlePressOut}
-          activeOpacity={0.7}
-        >
-          <PizzaItem 
-            name="Frango" 
-            price={30} 
-            originalPrice={35} 
-            items={['Galeto', 'Hormônio XYZ', 'Corante Laranja']}
-          />
-        </TouchableOpacity>
-
-        {/* <TouchableWithoutFeedback>
-            descontinuado
-        </TouchableWithoutFeedback> */}
+        <PizzaItem 
+          name="Frango" 
+          price={30} 
+          originalPrice={35} 
+          items={['Galeto', 'Hormônio XYZ', 'Corante Laranja']}
+          onPress={() => Alert.alert('Frangote')}
+        />
     </SafeAreaView>
   );
 }

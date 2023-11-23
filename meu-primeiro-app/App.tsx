@@ -1,47 +1,32 @@
-import { Text, SafeAreaView, StyleSheet, Button, Alert, Pressable, View, TouchableHighlight, TouchableOpacity, TouchableWithoutFeedback } from 'react-native';
-import { PizzaItem } from './components/PizzaItem';
+import { useState } from 'react';
+import { Button, Text, SafeAreaView, StyleSheet  } from 'react-native';
+
 
 const App = () => {
 
-  const handlePressIn = () => {
-    Alert.alert('Começou o PRESS');
+  const [name, setName] = useState('Ninguém');
+
+  const handleButton1 = () => {
+    setName('Bonieky');
   }
 
-  const handlePressOut = () => {
-    Alert.alert('Tirou o dedo!');
+  const handleButton2 = () => {
+    setName('Gustavo');
   }
 
-  const handleLongPress = () => { 
-    Alert.alert('Segurou o dedo');
-  }
-  
   return (
     <SafeAreaView>
         <Text style={styles.title}>Meu Primeiro App</Text>
 
-        <Text style={styles.subtitle}>Lista de Pizzas:</Text>
+        <Text style={styles.subtitle}>Meu nome é {name}</Text>
 
-    
-        <PizzaItem 
-          name="Quatro Queijos" 
-          price={50} 
-          items={['Queijo X', 'Queijo Y', 'Massa', 'Corante Amarelado']}
-          onPress={() => Alert.alert('4 Queijos')}
+        <Button 
+          title='Mudar para Bonieky' 
+          onPress={handleButton1} 
         />
-  
-        <PizzaItem 
-          name="Calabresa" 
-          price={45} 
-          items={['Carne', 'Resto de algo', 'Massa', 'Corante Avermelhado']}
-          onPress={() => Alert.alert('Cala a bresa')}
-        />
-
-        <PizzaItem 
-          name="Frango" 
-          price={30} 
-          originalPrice={35} 
-          items={['Galeto', 'Hormônio XYZ', 'Corante Laranja']}
-          onPress={() => Alert.alert('Frangote')}
+        <Button 
+          title='Mudar para Gustavo' 
+          onPress={handleButton2}
         />
     </SafeAreaView>
   );
@@ -55,9 +40,11 @@ const styles = StyleSheet.create({
     textAlign: 'center'
   },
   subtitle: {
-    fontSize: 17,
-    color: '#999',
-    textAlign: 'center'
+    fontSize: 19,
+    color: '#000',
+    textAlign: 'center',
+    marginTop: 20,
+    marginBottom: 20
   },
   button: {
     backgroundColor: '#FF0000',
